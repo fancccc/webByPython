@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新海诚风格绘画迁移</title>
+</head>
+<body>
+<form action="/login/draw/" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <p>
+    <label for="ph">图片上传 </label> <input type="file" name="upPic" id="ph"/>
+  </p>
+  <p>
+    &emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="upload"/>
+  </p>
+</form>
+<img src={{upURL}} alt="">
+<img src={{downURL}} alt="">
+</body>
+</html>

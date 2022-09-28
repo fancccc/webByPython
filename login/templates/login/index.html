@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="Zh-CN">
+<head>
+  <meta charset="utf-8">
+  <base target="_blank" />
+  <title>Fanc's Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="{% static "/login/css/swiper.min_index.css" %}">
+  <link rel="stylesheet" href="{% static "/login/css/style_index.css" %}">
+
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+	<!--模板内容===============================================================================================-->
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>01-诗歌生成</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/01-pictures.png" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:poetry' %}">效果演示</a>
+				</div>
+			</div>
+	    </div>
+		
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>文本转换</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/00.jpg" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:to_translate' %}">点击进入</a>
+				</div>
+			</div>
+	    </div>
+		
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>01-PICTURES</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/01-pictures.png" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:to_picture' %}">效果演示</a>
+				</div>
+			</div>
+	    </div>
+	<!-- start ===============================================================================================-->
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>02-PUBG</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/02-pubg.png" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:to_pubg' %}">点击进入</a>
+				</div>
+			</div>
+	    </div>
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>03-VIDEO</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/03-p.png" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:to_video' %}">点击进入</a>
+				</div>
+			</div>
+	    </div>
+
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>04-DNF装备计算器</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/03-p.png" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:to_dnf' %}">点击进入</a>
+				</div>
+			</div>
+	    </div>
+		
+		<div class="swiper-slide">
+			<div class="card">
+				<div class="sliderText">
+					<h3>05-AI绘图</h3>
+				</div>
+				<div class="demo-img">
+					<img src="{% static "/img/03-p.png" %}">
+				</div>
+				<text class="text-m">左右滑动选择不同卡片</text>
+				<div class="content">
+					<a href="{% url 'login:to_draw' %}">点击进入</a>
+				</div>
+			</div>
+	    </div>
+	<!-- end ===============================================================================================-->
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <!-- Swiper JS -->
+  <script src="{% static "/login/js/swiper.min_index.js" %}"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 30,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+</body>
+</html>

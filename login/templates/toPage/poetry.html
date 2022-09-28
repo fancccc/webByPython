@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="Zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>POETRY</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{% static "/css/style_pubg.css" %}">
+</head>
+<body>
+	<div class="wrapper">
+		<form class="form-signin" action="/login/poetry/" method="post">
+			{% csrf_token %}
+			<h2 class="form-signin-heading text-center">诗歌生成</h2>
+			<input type="text" class="form-control" name="text" placeholder="首行诗句">
+			<button class="btn btn-lg btn-primary btn-block">生成</button>
+		</form>
+	</div>
+	<div class="wrapper">
+	<dl>
+	{% for i in res %}
+	<dt> {{ text }}</dt>
+	<dt>  </dt>
+		{% for j in i %}
+		<dt style='font:10;'> {{j}}</dt>
+		{% endfor %}
+	{% endfor %}
+	</dl>
+	</div>
+<text style='font:8;color:gray'>Paddlehub：ernie_gen_poetry 文本生成模型</text>
+</body>
+</html>

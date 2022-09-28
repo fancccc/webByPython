@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>建党100周年</title>
+    <base target="_blank" />
+    <link rel="stylesheet" type="text/css" href="{% static "/css/swiper.min_video.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "/css/style_gcd.css" %}">
+</head>
+<body>
+	<!-- Swiper -->
+	<section class="pc-banner">
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide swiper-slide-center none-effect">
+	            	<a href=""><img src="{% static "/img/07101.jpg" %}" ></a>
+	            </div>
+	            <div class="swiper-slide"><a href=""><img src="{% static "/img/07102.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07103.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07104.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07105.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07106.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07107.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07108.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07109.jpg" %}" ></a></div>
+				<div class="swiper-slide"><a href=""><img src="{% static "/img/07110.jpg" %}" ></a></div>
+	        </div>
+	    </div>
+
+	    <div class="swiper-pagination"></div>
+		<div class="button">
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div></div>
+	</section>
+	<div class="describe">#为你骄傲我的中国#！ ​​​</div>
+
+    <!-- Swiper JS -->
+    <script src="{% static "/js/swiper.min_video.js" %}"></script>
+    <!-- Initialize Swiper -->
+    <script>
+		window.onload = function() {
+	    var swiper = new Swiper('.swiper-container',{
+			autoplay:3000,	//是否自动滚动
+			speed:1000,		//滚动速速
+			autoplayDisableOnInteraction : false,
+			loop:true,
+			centeredSlides : true,
+			slidesPerView:2,//当前选中
+	        pagination : '.swiper-pagination',
+			paginationClickable:true,
+			prevButton:'.swiper-button-prev',//左右切换
+	        nextButton:'.swiper-button-next',//左右切换
+			onInit:function(swiper){		 //当前选中 状态
+					swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
+				},
+	        	breakpoints: { 
+	                668: {
+	                    slidesPerView: 1,
+	                }
+	            }
+			});
+		}
+    </script>
+</body>
+</html>

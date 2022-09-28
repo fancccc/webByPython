@@ -1,0 +1,30 @@
+{
+    "自选装备": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        2,
+        2,
+        2,
+        8,
+        0,
+        0,
+        4
+    ],
+    "装备锁定": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+    ]
+}

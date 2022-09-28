@@ -1,0 +1,248 @@
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>DNF装备计算器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <!--<link rel="stylesheet" href="https://dnf.qq.com/web201905/css/swiper-min.css">
+    -->
+  <link rel="stylesheet" href="https://dnf.qq.com/web201905/css/comm.css">
+
+  <link rel="stylesheet" href="https://dnf.qq.com/web201905/css/main.css">
+  <!--
+  <link rel="stylesheet" href="{% static "/css/style_dnf.css" %}">
+  -->
+</head>
+<body>
+<!-- partial:index.partial.html -->
+    <div class="container">
+		<div class="selected-item">
+			<p>选择职业系</p>
+		</div>
+		 <form method="post" id='zyx'>
+		 {% csrf_token %}
+		  <select onChange="nextChange()" name="zyx" id="cusSelectbox">
+			<option value="鬼剑士(男)">鬼剑士（男）</option>
+			<option value="鬼剑士(女)">鬼剑士（女）</option>
+			<option value="格斗家(男)">格斗家（男）</option>
+			<option value="格斗家(女)">格斗家（女）</option>
+			<option value="神枪手(男)">神枪手（男）</option>
+			<option value="神枪手(女)">神枪手（女）</option>
+			<option value="魔法师(男)">魔法师（男）</option>
+			<option value="魔法师(女)">魔法师（女）</option>
+			<option value="圣职者(男)">圣职者（男）</option>
+			<option value="圣职者(女)">圣职者（女）</option>
+			<option value="暗夜使者">暗夜使者</option>
+			<option value="守护者">守护者</option>
+			<option value="魔枪士">魔枪士</option>
+			<option value="枪剑士">枪剑士</option>
+			<option value="外传">外传</option>
+		  </select>
+		  <select name="转职名称" id="cusSelectbox2">
+			<option></option>
+		  </select>
+	   </form>
+	</div>
+  <div class="act_con">
+   <div class="act-bd">
+	<div class="act-list-title">
+        <span>套装名称</span>
+		<span>部件</span>
+		<span>神话部位</span>
+		<span></span>
+    </div>
+    <div class="swiper-container swiper-container-initialized swiper-container-vertical swiper-container-free-mode __web-inspector-hide-shortcut__">
+	<div class="swiper-slide swiper-slide-active">
+     <ul class="act-list" id="act_list">
+	 {% for i in equ %}
+	  <li>
+	   <p class="actName"><a href="" target="_blank" onclick="PTTSendClick(&quot;act&quot;,&quot;act0&quot;,&quot;{{i.0.0}}&quot;);">{{i.0.0}}</a></p>
+	   <p style="width: 40%">
+	   {% for j in i %}
+		<img src={{j.4}} alt="">
+		{% endfor %}
+	   </p>
+	   <p><a href="https://dnf.qq.com/cp/a20210618era/" target="_blank" class="sprite icon-get" onclick="PTTSendClick(&quot;act&quot;,&quot;act&quot;+0,&quot;大飞空时代&quot;);"></a></p>
+	  </li>
+	  {% endfor %}
+	  <li>
+	   <p class="actName"><a href="https://dnf.qq.com/cp/a20210618era/" target="_blank" onclick="PTTSendClick(&quot;act&quot;,&quot;act0&quot;,&quot;大飞空时代&quot;);">大飞空时代</a></p>
+	   <p>
+	    <img src="https://shp.qpic.cn/cms_pic/2570114868/0eabcb5bd8ef8d4abd28487767553714/" alt="">
+		<img src="https://shp.qpic.cn/cms_pic/2490888182/a293a3f43d9186c4c17a3c061046e0be/" alt="">
+	   </p>
+	   <p><span>30天后结束</span></p>
+	   <p><a href="https://dnf.qq.com/cp/a20210618era/" target="_blank" class="sprite icon-get" onclick="PTTSendClick(&quot;act&quot;,&quot;act&quot;+0,&quot;大飞空时代&quot;);"></a></p>
+	  </li>
+	  
+	  <li>
+	   <p class="actName"><a href="https://dnf.qq.com/cp/a20210618era/" target="_blank" onclick="PTTSendClick(&quot;act&quot;,&quot;act0&quot;,&quot;大飞空时代&quot;);">大飞空时代</a></p>
+	   <p>
+	    <img src="https://shp.qpic.cn/cms_pic/2570114868/0eabcb5bd8ef8d4abd28487767553714/" alt="">
+		<img src="https://shp.qpic.cn/cms_pic/2610242936/916046af90ee4973f16296d6e0177810/" alt="">
+		<img src="https://shp.qpic.cn/cms_pic/2520445883/a8cd2701714e3149c024b0bf64df9206/" alt="">
+	   </p>
+	   <p><span>30天后结束</span></p>
+	   <p><a href="https://dnf.qq.com/cp/a20210618era/" target="_blank" class="sprite icon-get" onclick="PTTSendClick(&quot;act&quot;,&quot;act&quot;+0,&quot;大飞空时代&quot;);"></a></p>
+	  </li>
+    </div>
+	</div>
+   </div>
+  </div>
+		<div class="feaBlock">
+			<ol>
+				<li>说明.</li>
+				<li>内容.</li>
+			</ol>
+		</div>
+<!-- partial -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- 
+	<script src="{% static "/js/script_dnf.js" %}"></script> 
+	-->
+	<script>
+		function nextChange()
+			{
+				var first = document.getElementById("cusSelectbox");
+				var second = document.getElementById("cusSelectbox2");
+				second.options.length = 0; // 清除second下拉框的所有内容
+				if(first.selectedIndex == 0)
+				{
+					second.options.add(new Option("剑魂", "0", false, true));// 默认选中区
+					second.options.add(new Option("狂战士", "1", )); 
+					second.options.add(new Option("鬼泣", "2"));
+					second.options.add(new Option("阿修罗", "3"));
+					second.options.add(new Option("剑影", "4"));
+				}
+
+				if(first.selectedIndex == 1)
+				{
+					second.options.add(new Option("驭剑士", "0", false, true));// 默认选中区
+					second.options.add(new Option("暗殿骑士", "1", )); 
+					second.options.add(new Option("契魔者", "2"));
+					second.options.add(new Option("流浪武士", "3"));
+					second.options.add(new Option("刃影", "4"));
+				}
+				
+				if(first.selectedIndex == 2)
+				{
+					second.options.add(new Option("气功师（男）", "0", false, true));// 默认选中区
+					second.options.add(new Option("散打（男）", "1", )); 
+					second.options.add(new Option("街霸（男）", "2"));
+					second.options.add(new Option("柔道家（男）", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 3)
+				{
+					second.options.add(new Option("气功师（女）", "0", false, true));// 默认选中区
+					second.options.add(new Option("散打（女）", "1", )); 
+					second.options.add(new Option("街霸（女）", "2"));
+					second.options.add(new Option("柔道家（女）", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 4)
+				{
+					second.options.add(new Option("漫游枪手（男）", "0", false, true));// 默认选中区
+					second.options.add(new Option("枪炮师（男）", "1", )); 
+					second.options.add(new Option("机械师（男）", "2"));
+					second.options.add(new Option("弹药专家（男）", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 5)
+				{
+					second.options.add(new Option("漫游枪手（女）", "0", false, true));// 默认选中区
+					second.options.add(new Option("枪炮师（女）", "1", )); 
+					second.options.add(new Option("机械师（女）", "2"));
+					second.options.add(new Option("弹药专家（女）", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 6)
+				{
+					second.options.add(new Option("元素爆破师", "0", false, true));// 默认选中区
+					second.options.add(new Option("冰结师", "1", )); 
+					second.options.add(new Option("血法师", "2"));
+					second.options.add(new Option("逐风者", "3"));
+					second.options.add(new Option("次元行者", "4"));
+				}
+				
+				if(first.selectedIndex == 7)
+				{
+					second.options.add(new Option("元素师", "0", false, true));// 默认选中区
+					second.options.add(new Option("召唤师", "1", )); 
+					second.options.add(new Option("战斗法师", "2"));
+					second.options.add(new Option("魔道学者", "3"));
+					second.options.add(new Option("小魔女", "4"));
+				}
+				
+				if(first.selectedIndex == 8)
+				{
+					second.options.add(new Option("圣骑士（男）", "0", false, true));// 默认选中区
+					second.options.add(new Option("蓝拳圣使", "1", )); 
+					second.options.add(new Option("驱魔师", "2"));
+					second.options.add(new Option("复仇者", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 9)
+				{
+					second.options.add(new Option("圣骑士（女）", "0", false, true));// 默认选中区
+					second.options.add(new Option("异端审判者", "1", )); 
+					second.options.add(new Option("巫女", "2"));
+					second.options.add(new Option("诱魔者", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 10)
+				{
+					second.options.add(new Option("刺客", "0", false, true));// 默认选中区
+					second.options.add(new Option("死灵术士", "1", )); 
+					second.options.add(new Option("忍者", "2"));
+					second.options.add(new Option("影舞者", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 11)
+				{
+					second.options.add(new Option("精灵骑士", "0", false, true));// 默认选中区
+					second.options.add(new Option("混沌魔灵", "1", )); 
+					second.options.add(new Option("帕拉丁", "2"));
+					second.options.add(new Option("龙骑士", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 12)
+				{
+					second.options.add(new Option("征战者", "0", false, true));// 默认选中区
+					second.options.add(new Option("决战者", "1", )); 
+					second.options.add(new Option("狩猎者", "2"));
+					second.options.add(new Option("暗枪士", "3"));
+					second.options.add(new Option("", "4"));
+				}
+				
+				if(first.selectedIndex == 13)
+				{
+					second.options.add(new Option("暗刃", "0", false, true));// 默认选中区
+					second.options.add(new Option("特工", "1", )); 
+					second.options.add(new Option("战线佣兵", "2"));
+					second.options.add(new Option("源能专家", "3"));
+					second.options.add(new Option("", "4"));
+				}		
+
+				if(first.selectedIndex == 14)
+				{
+					second.options.add(new Option("缔造者", "0", false, true));// 默认选中区
+					second.options.add(new Option("黑暗武士", "1", )); 
+					second.options.add(new Option("", "2"));
+					second.options.add(new Option("", "3"));
+					second.options.add(new Option("", "4"));
+				}				
+			}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FANC(fanc.top)</title>
+</head>
+<body>
+{{ time }}<br/>
+	<form action="/get-text/" method="post">
+	{% csrf_token %}
+	{% for i,j in catalog.items %}
+	{{i}}
+	<input type="submit" value="{{j}}" name="url"><br/>
+	{% endfor %}
+	</form>
+<br/>
+	{% for i in text %}
+	{{i}}<br/>
+	{% endfor %}
+{% load static %}
+<img src="{% static "images/test.jpg" %}" style ="{% static "css/userImgs/moreImg" %}" alt="test">
+</body>
+</html>

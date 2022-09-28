@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="Zh-CN">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <base target="_blank" />
+  <title>html 便签</title>
+  <style type="text/css">
+*{margin:0px;padding:0px;list-style-type:none;}
+a,img{border:0;}
+body{margin:0px auto;width:800px;font-family:arial,sans-serif;font-size:100%;margin:3em;background:#666;color:#fff;}
+  </style>
+  <link href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static "/css/style_bq.css" %}">
+</head>
+
+<body>
+
+<div class="note">
+	<ul>
+		<li>
+			<a href="{% url 'login:poetry' %}">
+				<h2>诗歌生成</h2>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'login:to_pubg' %}">
+				<h2>PUBG</h2>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'login:to_BallPool' %}">
+				<h2>Ball Poll</h2>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'login:to_translate' %}">
+				<h2>翻译转换</h2>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'login:to_draw' %}">
+				<h2>star 张:</h2>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			</a>
+		</li>
+		<li>
+			<a href="{% url 'login:to_pubg' %}">
+				<h2>某武林高手:</h2>
+				<p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			</a>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

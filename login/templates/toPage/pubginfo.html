@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="Zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>PUBG</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{% static "/css/style_pubg.css" %}">
+</head>
+<body>
+
+	<dl>
+	<dt>团队击杀数：{{ data.assists }}&#128507;</dt>
+	<dt>恢复类道具使用量：{{ data.boots }}&#128508;</dt>
+	<dt>击倒数：{{ data.dBNOs }}</dt>
+	<dt>最近一天击杀数：{{ data.dailyKills }}&#128509;</dt>
+	<dt>团队伤害量（除自己）：{{ data.damageDealt }}&#128510;</dt>
+	<dt>最近一天获胜场次：{{ data.dailyWins }}&#128511;</dt>
+	<dt>爆头击杀数：{{ data.headshotKills }}&#128512;</dt>
+	<dt>治疗量：{{ data.heals }}&#128513;</dt>
+	<dt>击杀数：{{ data.kills }}&#128514;</dt>
+	<dt>最远击杀距离：{{ data.longestKill }}m&#128515;</dt>
+	<dt>单场比赛最高击杀数：{{ data.roundMostKills }}&#128516;</dt>
+	<dt>灭队数：{{ data.teamKills }}&#128517;</dt>
+	<dt>总生存时间：{{ data.timeSurvived }}&#26D1;</dt>
+	<dt>前10场次数：{{ data.top10s }}&#10024;</dt>
+	<dt>吃鸡场次数：{{ data.wins }}&#12951;</dt>
+	
+	</dl>
+</body>
+</html>
